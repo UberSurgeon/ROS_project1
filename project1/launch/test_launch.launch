@@ -1,0 +1,30 @@
+<launch>
+<!-- roslaunch rplidar_ros view_rplidar_a1.launch -->
+<include
+file="$(find rplidar_ros)/launch/view_rplidar.launch"
+>
+</include>
+<!-- rosrun project1 project1_sublaser -->
+<node
+pkg="project1"
+type="project1_sublaser"
+name="subscribe_laser"
+required="true"
+output="screen"
+></node>
+
+<!-- rosrun rosserial_python serial_node.py /dev/ttyACM0 -->
+<node
+pkg="rosserial_python"
+type="serial_node.py"
+name="serial_python"
+required="true"
+>
+<param
+name="~port"
+value="/dev/ttyACM0"
+>
+</param>
+</node>
+
+</launch>
