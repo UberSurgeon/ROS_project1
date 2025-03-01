@@ -133,6 +133,8 @@ include_directories(
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
 add_executable(${PROJECT_NAME}_sublaser src/sublaser.cpp)
+add_executable(${PROJECT_NAME}_Runaudio src/Runaudio.cpp)
+add_executable(${PROJECT_NAME}_Stopaudio src/Stopaudio.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -148,6 +150,13 @@ add_executable(${PROJECT_NAME}_sublaser src/sublaser.cpp)
 target_link_libraries(${PROJECT_NAME}_sublaser
   ${catkin_LIBRARIES}
 )
+target_link_libraries(${PROJECT_NAME}_Runaudio
+  ${catkin_LIBRARIES}
+)
+target_link_libraries(${PROJECT_NAME}_Stopaudio
+  ${catkin_LIBRARIES}
+)
+
 
 #############
 ## Install ##
